@@ -1,0 +1,51 @@
+<div class="container-fluid py-5">
+    <div class="card text-white bg-light mb-3 mx-auto mt-1" style="width: 70rem;">
+
+    <div class="card text-white bg-secondary mb-3 mx-auto mt-1" style="max-width: 40rem;">
+        <div class="card-header">GENERALA</div>
+        <div class="card-body">
+          <h5 class="card-title">Lanza 5 dados para ganar</h5>
+          <p class="card-text">Si obtienes los <b>CINCO</b> numeros iguales ganas</p>
+        </div>
+      </div>
+
+    <hr>
+    <div class="d-grid justify-content-md-center py-3">
+        <button *ngIf="cuantosTiros" type="button" class="btn btn-secondary mx-auto" (click)="tirarElDado()">
+            Tirar dado
+        </button>
+        <button *ngIf="!cuantosTiros" type="button" class="btn btn-info mx-auto" (click)="reiniciar()">
+            Volver a jugar
+        </button>
+    </div>
+    <app-dados [tiros]="tiros"></app-dados>
+
+    <div class="text-muted text-center">
+        <span class="badge badge-pill badge-info">{{5-tiros.length}} tiros restantes</span>
+    </div>
+
+<hr>
+
+    <div *ngIf="generala" class="alert alert-success w-50 mx-auto mt-3" role="alert">
+        <h4 class="alert-heading">Felicidades!</h4>
+        <p>Ganaste la generala. Conseguiste los 5 numeros iguales</p>        
+    </div>
+
+    <div *ngIf="tiros.length == 5 && !generala">
+        <div class="alert alert-danger w-50 mx-auto" role="alert">
+            <h4 class="alert-heading">Perdiste</h4>
+            <p>No conseguiste los cinco numero iguales</p>
+        </div>
+    </div>
+
+</div>
+    <hr>
+    
+    <footer class="mastfoot mt-auto">
+        <div class="inner">
+          <p>Guiñazu Gaston - 113197, 2W1.</p>
+        </div>
+      </footer>
+
+</div>
+
